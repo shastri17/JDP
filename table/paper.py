@@ -2,9 +2,11 @@ from faker import Factory
 import csv as csv
 from faker.providers import BaseProvider
 fake = Factory.create()
+def num(self):
+	return fake.random_int()%5
 class MyProvider(BaseProvider):
 	def domain(self):
-		x=fake.random_int()%3
+		x=num()
 		if (x==1):
 			return 'comp science'
 		if (x==0):
@@ -12,7 +14,7 @@ class MyProvider(BaseProvider):
 		if (x==2):
 			return 'software'
 	def paper(self):
-		x=fake.random_int()%5
+		x=num()
 		if (x==1):
 			return 'algorithm'
 		if (x==2):
